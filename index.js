@@ -17,6 +17,7 @@ function playDrumSound(event) {
 }
 function playDrumSoundKeyboard(event){
     keyPress = event.key; // Update the value of keyPress
+    if (event.repeat) return;
     switch (keyPress) {
       case "w":
         var drumSound = new Audio("./sounds/crash.mp3");
@@ -48,4 +49,4 @@ var drums = document.querySelectorAll(".drum");
 drums.forEach(function (drum) {
   drum.addEventListener("click", playDrumSound);
 });
-document.addEventListener("keyup", playDrumSoundKeyboard);
+document.addEventListener("keydown", playDrumSoundKeyboard);
